@@ -1,0 +1,29 @@
+/* VARIABLES */
+$color-one: #000;
+
+$primary-font: 'Inconsolata', monospace;
+$secondary-font: 'Signika', sans-serif;
+
+/* GLOBAL */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: $primary-font;
+  color: $color-one;
+}
+/* HEADER */
+
+/* SECTION RoundNo */
+
+/* SECTION Main */
+
+/* FOOTER */
