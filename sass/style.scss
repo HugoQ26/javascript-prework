@@ -12,6 +12,7 @@ $secondary-font: 'Signika', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border: 1px solid red;
 }
 
 body {
@@ -20,7 +21,17 @@ body {
   font-family: $primary-font;
   color: $color-one;
 }
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 /* HEADER */
+
+header {
+  text-align: center;
+}
 
 /* SECTION RoundNo */
 
