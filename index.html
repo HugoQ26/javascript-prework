@@ -6,14 +6,45 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <div id="buttons">
-        <button id="play-rock">Kamień</button>
-        <button id="play-paper">Papier</button>
-        <button id="play-scissors">Nożyce</button>
+    <header>
+      <div class="container">
+        <h1>Welcome to my game</h1>
       </div>
-      <div id="messages"></div>
-    </div>
+    </header>
+    <section class="roundNo">
+      <h2>Runda</h2>
+    </section>
+    <section class="main">
+      <div class="container">
+        <div class="row">
+          <div class="box">
+            <h2>Player</h2>
+            <div id="buttons">
+              <button id="play-rock">Kamień</button>
+              <button id="play-paper">Papier</button>
+              <button id="play-scissors">Nożyce</button>
+              <button id="reset">Reset</button>
+            </div>
+            <h3>Kamień</h3>
+          </div>
+          <div class="box">
+            <h2>Computer</h2>
+            <h3>Nożyczki</h3>
+          </div>
+          <div id="messages"></div>
+          <div id="score">
+            <div id="player-score">0</div>
+            <div>:</div>
+            <div id="comp-score">0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <h4>Copywrite 2019</h4>
+      </div>
+    </footer>
     <script src="js/functions.js"></script>
     <script src="js/script.js"></script>
   </body>
