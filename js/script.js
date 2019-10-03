@@ -1,3 +1,6 @@
+let playerScore = 0;
+let compScore = 0;
+
 function playGame(playerInput) {
   clearMessages();
 
@@ -21,30 +24,24 @@ function playGame(playerInput) {
       printMessage(
         `Remis!!! - komputer wylosował ${computerMove} a ty też ${argPlayerMove}`
       );
-    } else if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
+    } else if (
+      (argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
+      (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
+      (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')
+    ) {
       printMessage(
         `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
       );
-    } else if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
+      playerScore += 1;
+    } else if (
+      (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') ||
+      (argComputerMove == 'papier' && argPlayerMove == 'kamień') ||
+      (argComputerMove == 'nożyce' && argPlayerMove == 'papier')
+    ) {
       printMessage(
         `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
       );
-    } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
-      printMessage(
-        `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
-      );
-    } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
-      printMessage(
-        `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
-      );
-    } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
-      printMessage(
-        `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
-      );
-    } else if (argComputerMove == 'nożyce' && argPlayerMove == 'papier') {
-      printMessage(
-        `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
-      );
+      compScore += 1;
     }
   }
 
@@ -61,12 +58,25 @@ function playGame(playerInput) {
 
 document.getElementById('play-rock').addEventListener('click', function() {
   playGame(1);
+  score(playerScore, compScore);
+  console.log(`${playerScore} : ${compScore}`);
 });
 
 document.getElementById('play-paper').addEventListener('click', function() {
   playGame(2);
+  score(playerScore, compScore);
+  console.log(`${playerScore} : ${compScore}`);
 });
 
 document.getElementById('play-scissors').addEventListener('click', function() {
   playGame(3);
+  score(playerScore, compScore);
+  console.log(`${playerScore} : ${compScore}`);
+});
+
+document.getElementById('reset').addEventListener('click', function() {
+  resetScore();
+  clearMessages();
+  playerScore = 0;
+  compScore = 0;
 });

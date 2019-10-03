@@ -7,3 +7,12 @@ function printMessage(msg) {
 function clearMessages() {
   document.getElementById('messages').innerHTML = '';
 }
+
+function score(player, comp) {
+  document.getElementById('player-score').textContent = player;
+  document.getElementById('comp-score').textContent = comp;
+}
+
+function resetScore() {
+  score(0, 0);
+}
