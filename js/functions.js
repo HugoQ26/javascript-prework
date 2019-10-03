@@ -16,3 +16,13 @@ function score(player, comp) {
 function resetScore() {
   score(0, 0);
 }
+
+function printMoves(player, comp) {
+  document.getElementById('comp-move').textContent = comp;
+  document.getElementById('player-move').textContent = player;
+}
+
+function printMovesClear() {
+  document.getElementById('comp-move').textContent = '';
+  document.getElementById('player-move').textContent = '';
+}

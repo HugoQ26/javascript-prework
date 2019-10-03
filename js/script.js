@@ -3,6 +3,7 @@ let compScore = 0;
 
 function playGame(playerInput) {
   clearMessages();
+  printMovesClear();
 
   function getMoveName(argMoveId) {
     if (argMoveId == 1) {
@@ -12,7 +13,6 @@ function playGame(playerInput) {
     } else if (argMoveId == 3) {
       return 'nożyce';
     }
-
     printMessage('Nie znam ruchu o id ' + argMoveId + '.');
     return 'nieznany ruch';
   }
@@ -40,22 +40,19 @@ function playGame(playerInput) {
     if (argPlayerMove == 'nieznany ruch') {
       printMessage('Wpisałeś złą liczbę...');
     } else if (argPlayerMove == argComputerMove) {
-      printMessage(
-        `Remis!!! - komputer wylosował ${computerMove} a ty też ${argPlayerMove}`
-      );
+      printMessage(`Remis!!!`);
+      printMoves(argPlayerMove, argComputerMove);
     } else if (
       (argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
       (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
       (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')
     ) {
-      printMessage(
-        `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
-      );
+      printMessage(`Gracz wygrywa!!`);
+      printMoves(argPlayerMove, argComputerMove);
       playerScore += 1;
     } else {
-      printMessage(
-        `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
-      );
+      printMessage(`Komputer wygrywa!!`);
+      printMoves(argPlayerMove, argComputerMove);
       compScore += 1;
     }
   }
@@ -92,6 +89,7 @@ document.getElementById('play-scissors').addEventListener('click', function() {
 document.getElementById('reset').addEventListener('click', function() {
   resetScore();
   clearMessages();
+  printMovesClear();
   playerScore = 0;
   compScore = 0;
 });
