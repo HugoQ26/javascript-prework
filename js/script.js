@@ -16,6 +16,25 @@ function playGame(playerInput) {
     printMessage('Nie znam ruchu o id ' + argMoveId + '.');
     return 'nieznany ruch';
   }
+  /*
+  function displayResult(argComputerMove, argPlayerMove) {
+    argPlayerMove == 'nieznany ruch'
+      ? printMessage('Wpisałeś złą liczbę...')
+      : argPlayerMove == argComputerMove
+      ? printMessage(
+          `Remis!!! - komputer wylosował ${computerMove} a ty też ${argPlayerMove}`
+        )
+      : (argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
+        (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
+        (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')
+      ? printMessage(
+          `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
+        )
+      : printMessage(
+          `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
+        );
+  }
+*/
 
   function displayResult(argComputerMove, argPlayerMove) {
     if (argPlayerMove == 'nieznany ruch') {
@@ -33,11 +52,7 @@ function playGame(playerInput) {
         `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
       );
       playerScore += 1;
-    } else if (
-      (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') ||
-      (argComputerMove == 'papier' && argPlayerMove == 'kamień') ||
-      (argComputerMove == 'nożyce' && argPlayerMove == 'papier')
-    ) {
+    } else {
       printMessage(
         `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
       );
