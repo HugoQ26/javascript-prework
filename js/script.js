@@ -1,40 +1,18 @@
 let playerScore = 0;
 let compScore = 0;
+let playerRound = 0;
+let compRound = 0;
+let moves = ['kamień', 'papier', 'nożyce'];
 
 function playGame(playerInput) {
   clearMessages();
   printMovesClear();
 
-  function getMoveName(argMoveId) {
-    if (argMoveId == 1) {
-      return 'kamień';
-    } else if (argMoveId == 2) {
-      return 'papier';
-    } else if (argMoveId == 3) {
-      return 'nożyce';
-    }
-    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-    return 'nieznany ruch';
+  function getMoveName(moveId) {
+    let moveName =
+      moveId >= 0 && moveId < moves.length ? moves[moveId] : 'nieznany ruch';
+    return moveName;
   }
-  /*
-  function displayResult(argComputerMove, argPlayerMove) {
-    argPlayerMove == 'nieznany ruch'
-      ? printMessage('Wpisałeś złą liczbę...')
-      : argPlayerMove == argComputerMove
-      ? printMessage(
-          `Remis!!! - komputer wylosował ${computerMove} a ty też ${argPlayerMove}`
-        )
-      : (argComputerMove == 'kamień' && argPlayerMove == 'papier') ||
-        (argComputerMove == 'papier' && argPlayerMove == 'nożyce') ||
-        (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')
-      ? printMessage(
-          `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Gracz wygrywa!!`
-        )
-      : printMessage(
-          `Komputer - ${argComputerMove}, Gracz - ${argPlayerMove} - Komputer wygrywa!!`
-        );
-  }
-*/
 
   function displayResult(argComputerMove, argPlayerMove) {
     if (argPlayerMove == 'nieznany ruch') {
@@ -49,40 +27,57 @@ function playGame(playerInput) {
     ) {
       printMessage(`Gracz wygrywa!!`);
       printMoves(argPlayerMove, argComputerMove);
-      playerScore += 1;
+      if (playerScore == 3) {
+        playerRound += 1;
+        playerScore = 0;
+        compScore = 0;
+        resetScore();
+      } else {
+        playerScore += 1;
+      }
+      console.log(playerRound, 'r1');
     } else {
       printMessage(`Komputer wygrywa!!`);
       printMoves(argPlayerMove, argComputerMove);
-      compScore += 1;
+      if (compScore == 3) {
+        ++compRound;
+        playerScore = 0;
+        compScore = 0;
+        resetScore();
+      } else {
+        compScore += 1;
+      }
+
+      console.log(compRound, 'rr2');
     }
   }
 
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
-
+  let randomNumber = Math.floor(Math.random() * 3);
   let computerMove = getMoveName(randomNumber);
-  console.log('Komputer wylosował: ' + computerMove);
 
   let playerMove = getMoveName(playerInput);
-  console.log('Gracz wpisał: ' + playerMove);
 
   displayResult(computerMove, playerMove);
 }
 
-document.getElementById('play-rock').addEventListener('click', function() {
-  playGame(1);
+document.getElementById('play-rock').addEventListener('click', function(e) {
+  playGame(e.target.value);
   score(playerScore, compScore);
+  printRoundNo2(playerRound, compRound);
   console.log(`${playerScore} : ${compScore}`);
 });
 
-document.getElementById('play-paper').addEventListener('click', function() {
-  playGame(2);
+document.getElementById('play-paper').addEventListener('click', function(e) {
+  playGame(e.target.value);
   score(playerScore, compScore);
+  printRoundNo2(playerRound, compRound);
   console.log(`${playerScore} : ${compScore}`);
 });
 
-document.getElementById('play-scissors').addEventListener('click', function() {
-  playGame(3);
+document.getElementById('play-scissors').addEventListener('click', function(e) {
+  playGame(e.target.value);
   score(playerScore, compScore);
+  printRoundNo2(playerRound, compRound);
   console.log(`${playerScore} : ${compScore}`);
 });
 
