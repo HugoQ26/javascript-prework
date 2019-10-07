@@ -6,6 +6,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
@@ -14,6 +18,14 @@ body {
   font-family: "Inconsolata", monospace;
   color: #000;
   height: 100vh;
+}
+
+section {
+  padding: 30px 0;
+}
+
+h2 {
+  font-size: 30px;
 }
 
 .container {
@@ -32,19 +44,112 @@ body {
       align-items: center;
 }
 
-section {
-  padding: 30px 0;
+.btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid #07575b;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #66a5ab;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.show-hide {
+  display: none;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 30px 0;
+  padding: 0 0 30px 0;
+  font-size: 30px;
+}
+
+header h1 {
+  padding: 15px 0;
+}
+
+header .container {
+  background: #c4dfe6;
+  position: relative;
+}
+
+header .burger {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+header .burger.btn {
+  padding: 3px 5px;
+}
+
+header button {
+  display: block;
+  margin: 5px;
+}
+
+header .header-buttons {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header #info {
+  text-align: left;
+  position: absolute;
+  bottom: -280%;
+  left: 50%;
+  width: 400px;
+  font-size: 14px;
+  border-radius: 5px;
+  transform: translatex(-50%);
+  z-index: 2;
+  background: #66a5ab;
+  padding: 15px;
+}
+
+header #info h3 {
+  padding: 10px;
+}
+
+header #info #close-info {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+}
+
+header #info #close-info:hover {
+  color: #003b46;
+  cursor: pointer;
 }
 
 /* SECTION round-section */
 section.round-section {
   position: relative;
+}
+
+section.round-section .container {
+  border-top: 2px solid #003b46;
+  border-bottom: 2px solid #003b46;
+}
+
+section.round-section h2.round {
+  font-size: 40px;
+  padding: 0 5vw;
 }
 
 section.round-section .score {
@@ -62,6 +167,29 @@ section.round-section .score div:nth-of-type(2) {
 
 section.round-section .round-score {
   font-size: 20px;
+  text-align: center;
+}
+
+section.round-section .round-score .row {
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+}
+
+section.round-section .round-score h2 {
+  -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+}
+
+section.round-section .round-score h3 {
+  -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+}
+
+section.round-section .round-score #player-round,
+section.round-section .round-score #comp-round {
+  -ms-flex: 1 0 50%;
+      flex: 1 0 50%;
+  font-size: 30px;
 }
 
 /* SECTION Main */
@@ -69,26 +197,274 @@ section.main {
   position: relative;
 }
 
+section.main h2 {
+  padding: 5px 0 20px 0;
+}
+
+section.main .row {
+  -ms-flex-align: initial;
+      align-items: initial;
+}
+
 section.main .box {
   height: 300px;
+  position: relative;
   text-align: center;
+  padding: 0 5vw;
+}
+
+section.main .box h3 {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
 }
 
 section.main #messages {
+  text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 36px;
+  font-size: 30px;
   transform: all 1s;
 }
 
 /* FOOTER */
 footer {
   position: fixed;
-  left: 50%;
+  text-align: center;
+  background: #003b46;
+  width: 100vw;
+  left: 0;
   bottom: 0;
   padding: 10px;
-  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+/* MEDIA */
+@media (max-width: 999px) {
+  /* GLOBAL */
+  section {
+    padding: 20px 0;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-align: center;
+        align-items: center;
+  }
+  .btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #07575b;
+    border-radius: 5px;
+  }
+  .btn:hover {
+    background: #66a5ab;
+    cursor: pointer;
+  }
+  .show-hide {
+    display: none;
+  }
+  /* HEADER */
+  header {
+    text-align: center;
+    padding: 0 0 30px 0;
+    font-size: 30px;
+  }
+  header h1 {
+    font-size: 6vw;
+    padding: 15px 0;
+  }
+  header .container {
+    background: #c4dfe6;
+    position: relative;
+  }
+  header .container button {
+    display: inline;
+    margin: 5px;
+  }
+  header .container .header-buttons {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+  header .container #info {
+    text-align: left;
+    position: absolute;
+    bottom: -400px;
+    left: 50%;
+    width: 300px;
+    font-size: 14px;
+    border-radius: 5px;
+    transform: translatex(-50%);
+    z-index: 2;
+    background: #66a5ab;
+    padding: 15px;
+  }
+  header .container #info h3 {
+    padding: 10px;
+  }
+  header .container #info #close-info {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+  }
+  header .container #info #close-info:hover {
+    color: #003b46;
+    cursor: pointer;
+  }
+  /* SECTION round-section */
+  section.round-section {
+    position: relative;
+  }
+  section.round-section .container {
+    border-top: 2px solid #003b46;
+    border-bottom: 2px solid #003b46;
+  }
+  section.round-section .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+  }
+  section.round-section h2 {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    text-align: center;
+  }
+  section.round-section h2.round {
+    font-size: 26px;
+    padding: 0 5vw;
+  }
+  section.round-section .score {
+    position: initial;
+    transform: none;
+    font-size: 40px;
+    font-weight: bold;
+    -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+    -ms-flex-order: 2;
+        order: 2;
+  }
+  section.round-section .score div:nth-of-type(2) {
+    padding: 0 10px;
+  }
+  section.round-section .round-score {
+    -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+    font-size: 14px;
+    text-align: center;
+  }
+  section.round-section .round-score .row {
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+  }
+  section.round-section .round-score h2 {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    font-size: 20px;
+  }
+  section.round-section .round-score h3 {
+    -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+  }
+  section.round-section .round-score #player-round,
+  section.round-section .round-score #comp-round {
+    -ms-flex: 1 0 50%;
+        flex: 1 0 50%;
+    font-size: 20px;
+  }
+  /* SECTION Main */
+  section.main {
+    position: relative;
+    padding-top: 0;
+  }
+  section.main h2 {
+    padding: 5px 0 20px 0;
+  }
+  section.main .row {
+    -ms-flex-align: initial;
+        align-items: initial;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  section.main .box {
+    -ms-flex: 0 0 49%;
+        flex: 0 0 49%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 0 5vw;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: start;
+        align-items: flex-start;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+  section.main .box h2 {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    font-size: 20px;
+    padding: 5px 0;
+  }
+  section.main .box #buttons {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    -ms-flex-order: 2;
+        order: 2;
+  }
+  section.main .box #buttons button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+  }
+  section.main .box h3 {
+    position: static;
+    transform: none;
+    font-size: 18px;
+  }
+  section.main #messages {
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+    text-align: center;
+    position: static;
+    transform: none;
+    font-size: 25px;
+    transform: all 1s;
+    margin: 10px 0 30px 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

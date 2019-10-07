@@ -32,9 +32,8 @@ function playGame(playerInput) {
         playerScore = 0;
         compScore = 0;
         ++playerRound;
-        ++roundNumber;
         printMessage(`Gracz wygrywa rundę!!`);
-        roundNumberChange(roundNumber);
+        roundNumberChange(++roundNumber);
       }
     } else {
       printMessage(`Komputer wygrywa!!`);
@@ -44,9 +43,8 @@ function playGame(playerInput) {
         playerScore = 0;
         compScore = 0;
         ++compRound;
-        ++roundNumber;
         printMessage(`Komputer wygrywa rundę!!`);
-        roundNumberChange(roundNumber);
+        roundNumberChange(++roundNumber);
       }
     }
     printMoves(argPlayerMove, argComputerMove);
@@ -74,9 +72,17 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 document.getElementById('reset').addEventListener('click', function() {
-  resetScore();
-  clearMessages();
-  printMovesClear();
   playerScore = 0;
   compScore = 0;
+  playerRound = 0;
+  compRound = 0;
+  roundNumber = 1;
+  resetAll(playerRound, compRound, roundNumber);
+});
+
+document.getElementById('close-info').addEventListener('click', function() {
+  document.getElementById('info').classList.toggle('show-hide');
+});
+document.getElementById('instructions').addEventListener('click', function() {
+  document.getElementById('info').classList.toggle('show-hide');
 });

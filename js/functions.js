@@ -1,16 +1,16 @@
 function printMessage(msg) {
-  var div = document.createElement('div');
+  var div = document.createElement("div");
   div.innerHTML = msg;
-  document.getElementById('messages').appendChild(div);
+  document.getElementById("messages").appendChild(div);
 }
 
 function clearMessages() {
-  document.getElementById('messages').innerHTML = '';
+  document.getElementById("messages").innerHTML = "";
 }
 
 function score(player, comp) {
-  document.getElementById('player-score').textContent = player;
-  document.getElementById('comp-score').textContent = comp;
+  document.getElementById("player-score").textContent = player;
+  document.getElementById("comp-score").textContent = comp;
 }
 
 function resetScore() {
@@ -18,20 +18,28 @@ function resetScore() {
 }
 
 function printMoves(player, comp) {
-  document.getElementById('comp-move').textContent = comp;
-  document.getElementById('player-move').textContent = player;
+  document.getElementById("comp-move").textContent = comp;
+  document.getElementById("player-move").textContent = player;
 }
 
 function printMovesClear() {
-  document.getElementById('comp-move').textContent = '';
-  document.getElementById('player-move').textContent = '';
+  document.getElementById("comp-move").textContent = "";
+  document.getElementById("player-move").textContent = "";
 }
 
 function playersRound(player, comp) {
-  document.getElementById('player-round').textContent = player;
-  document.getElementById('comp-round').textContent = comp;
+  document.getElementById("player-round").textContent = player;
+  document.getElementById("comp-round").textContent = comp;
 }
 
 function roundNumberChange(roundNumber) {
-  document.getElementById('round').textContent = roundNumber;
+  document.getElementById("round").textContent = roundNumber;
+}
+
+function resetAll(playerRound, compRound, roundNumber) {
+  resetScore();
+  clearMessages();
+  printMovesClear();
+  roundNumberChange(roundNumber);
+  playersRound(playerRound, compRound);
 }

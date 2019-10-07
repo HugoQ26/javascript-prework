@@ -10,13 +10,29 @@
     <header>
       <div class="container">
         <h1>Welcome to my game</h1>
+        <div id="burger" class="burger btn show-hide">More</div>
+        <div id="buttons" class="header-buttons">
+          <button class="btn" id="reset">Reset</button>
+          <button class="btn" id="instructions">Instructions</button>
+        </div>
+        <div id="info">
+          <h3>Instructions</h3>
+          1) Gracz naciska jeden z przycisków - kamień, papier, nożyczki <br />
+          2) Komputer losuję swój wybór <br />
+          3) Następnie jest wyświetlany wynik. <br />
+          <br />
+          Runda trwa do trzech zwyciestw. Remis nie dodaje nikomu punktu. Ilość
+          rund nieograniczona. Przyciskiem reset można zacząć całą grę od nowa.
+
+          <div id="close-info">X</div>
+        </div>
       </div>
     </header>
 
     <section class="round-section">
       <div class="container">
         <div class="row">
-          <h2>Runda <span id="round">1</span></h2>
+          <h2 class="round">Runda <span id="round">1</span></h2>
           <div class="score">
             <div class="row">
               <div id="player-score">0</div>
@@ -27,8 +43,10 @@
           <div class="round-score">
             <div class="row">
               <h2>Wygrane rundy</h2>
+              <h3>Gracz</h3>
+              <h3>Komputer</h3>
               <div id="player-round">0</div>
-              <div>:</div>
+              <!-- <div>:</div> -->
               <div id="comp-round">0</div>
             </div>
           </div>
@@ -42,10 +60,9 @@
           <div class="box">
             <h2>Player</h2>
             <div id="buttons">
-              <button class="play" value="1">Kamień</button>
-              <button class="play" value="2">Papier</button>
-              <button class="play" value="3">Nożyce</button>
-              <button id="reset">Reset</button>
+              <button class="play btn" value="1">Kamień</button>
+              <button class="play btn" value="2">Papier</button>
+              <button class="play btn" value="3">Nożyce</button>
             </div>
             <h3 id="player-move"></h3>
           </div>
@@ -59,7 +76,7 @@
     </section>
     <footer>
       <div class="container">
-        <h4>Copywrite 2019</h4>
+        <h4>Copyright HugoQ 2019</h4>
       </div>
     </footer>
     <script src="js/functions.js"></script>
